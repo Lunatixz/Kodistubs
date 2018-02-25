@@ -1,0 +1,2087 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>xbmc &#8212; Kodistubs 2.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="xbmcaddon" href="xbmcaddon.html" />
+    <link rel="prev" title="Kodi Python API" href="../modules.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-xbmc">
+<span id="xbmc"></span><h1>xbmc<a class="headerlink" href="#module-xbmc" title="Permalink to this headline">¶</a></h1>
+<p>Various classes and functions to interact with Kodi.</p>
+<p class="rubric">Functions</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.audioResume" title="xbmc.audioResume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">audioResume</span></code></a>()</td>
+<td>Resume Audio engine.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.audioSuspend" title="xbmc.audioSuspend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">audioSuspend</span></code></a>()</td>
+<td>Suspend Audio engine.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.convertLanguage" title="xbmc.convertLanguage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">convertLanguage</span></code></a>(language,&nbsp;format)</td>
+<td>Returns the given language converted to the given format as a string.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.enableNavSounds" title="xbmc.enableNavSounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">enableNavSounds</span></code></a>(yesNo)</td>
+<td>Enables/Disables nav sounds</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.executeJSONRPC" title="xbmc.executeJSONRPC"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executeJSONRPC</span></code></a>(jsonrpccommand)</td>
+<td>Execute an JSONRPC command.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.executebuiltin" title="xbmc.executebuiltin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executebuiltin</span></code></a>(function[,&nbsp;wait])</td>
+<td>Execute a built in XBMC function.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.executescript" title="xbmc.executescript"><code class="xref py py-obj docutils literal notranslate"><span class="pre">executescript</span></code></a>(script)</td>
+<td>Execute a python script.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getCacheThumbName" title="xbmc.getCacheThumbName"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCacheThumbName</span></code></a>(path)</td>
+<td>Returns a thumb cache filename.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getCleanMovieTitle" title="xbmc.getCleanMovieTitle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCleanMovieTitle</span></code></a>(path[,&nbsp;usefoldername])</td>
+<td>Returns a clean movie title and year string if available.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getCondVisibility" title="xbmc.getCondVisibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getCondVisibility</span></code></a>(condition)</td>
+<td>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">1</span></code>) or <code class="docutils literal notranslate"><span class="pre">False</span></code> (<code class="docutils literal notranslate"><span class="pre">0</span></code>) as a <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getDVDState" title="xbmc.getDVDState"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getDVDState</span></code></a>()</td>
+<td>Returns the dvd state as an integer.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getFreeMem" title="xbmc.getFreeMem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getFreeMem</span></code></a>()</td>
+<td>Returns the amount of free memory in MB as an integer.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getGlobalIdleTime" title="xbmc.getGlobalIdleTime"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getGlobalIdleTime</span></code></a>()</td>
+<td>Returns the elapsed idle time in seconds as an integer.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getIPAddress" title="xbmc.getIPAddress"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getIPAddress</span></code></a>()</td>
+<td>Returns the current ip address as a string.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getInfoImage" title="xbmc.getInfoImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInfoImage</span></code></a>(infotag)</td>
+<td>Returns a filename including path to the InfoImage’s thumbnail as a string.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getInfoLabel" title="xbmc.getInfoLabel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getInfoLabel</span></code></a>(cLine)</td>
+<td>Returns an InfoLabel as a string.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getLanguage" title="xbmc.getLanguage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLanguage</span></code></a>([format,&nbsp;region])</td>
+<td>Returns the active language as a string.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getLocalizedString" title="xbmc.getLocalizedString"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getLocalizedString</span></code></a>(id)</td>
+<td>Returns a localized ‘unicode string’.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getRegion" title="xbmc.getRegion"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getRegion</span></code></a>(id)</td>
+<td>Returns your regions setting as a string for the specified id.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.getSkinDir" title="xbmc.getSkinDir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSkinDir</span></code></a>()</td>
+<td>Returns the active skin directory as a string.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.getSupportedMedia" title="xbmc.getSupportedMedia"><code class="xref py py-obj docutils literal notranslate"><span class="pre">getSupportedMedia</span></code></a>(mediaType)</td>
+<td>Returns the supported file types for the specific media as a string.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.log" title="xbmc.log"><code class="xref py py-obj docutils literal notranslate"><span class="pre">log</span></code></a>(msg[,&nbsp;level])</td>
+<td>Write a string to XBMC’s log file and the debug window.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.makeLegalFilename" title="xbmc.makeLegalFilename"><code class="xref py py-obj docutils literal notranslate"><span class="pre">makeLegalFilename</span></code></a>(filename[,&nbsp;fatX])</td>
+<td>Returns a legal filename or path as a string.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.playSFX" title="xbmc.playSFX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">playSFX</span></code></a>(filename[,&nbsp;useCached])</td>
+<td>Plays a wav file by filename</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.restart" title="xbmc.restart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">restart</span></code></a>()</td>
+<td>Restart the htpc.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.shutdown" title="xbmc.shutdown"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shutdown</span></code></a>()</td>
+<td>Shutdown the htpc.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.skinHasImage" title="xbmc.skinHasImage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">skinHasImage</span></code></a>(image)</td>
+<td>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the image file exists in the skin.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.sleep" title="xbmc.sleep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sleep</span></code></a>(timemillis)</td>
+<td>Sleeps for ‘time’ msec.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.startServer" title="xbmc.startServer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">startServer</span></code></a>(iTyp,&nbsp;bStart[,&nbsp;bWait])</td>
+<td>start or stop a server.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.stopSFX" title="xbmc.stopSFX"><code class="xref py py-obj docutils literal notranslate"><span class="pre">stopSFX</span></code></a>()</td>
+<td>Stops wav file</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.translatePath" title="xbmc.translatePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translatePath</span></code></a>(path)</td>
+<td>Returns the translated path.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.validatePath" title="xbmc.validatePath"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validatePath</span></code></a>(path)</td>
+<td>Returns the validated path.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.InfoTagMusic" title="xbmc.InfoTagMusic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InfoTagMusic</span></code></a></td>
+<td>InfoTagMusic class</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.InfoTagVideo" title="xbmc.InfoTagVideo"><code class="xref py py-obj docutils literal notranslate"><span class="pre">InfoTagVideo</span></code></a></td>
+<td>InfoTagVideo class</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.Keyboard" title="xbmc.Keyboard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Keyboard</span></code></a>([line,&nbsp;heading,&nbsp;hidden])</td>
+<td>Creates a new Keyboard object with default text heading and hidden input flag if supplied.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.Monitor" title="xbmc.Monitor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Monitor</span></code></a></td>
+<td>Monitor class.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.PlayList" title="xbmc.PlayList"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlayList</span></code></a>(playList)</td>
+<td>Retrieve a reference from a valid xbmc playlist</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.PlayListItem" title="xbmc.PlayListItem"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PlayListItem</span></code></a></td>
+<td>Creates a new PlaylistItem which can be added to a PlayList.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#xbmc.Player" title="xbmc.Player"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Player</span></code></a>()</td>
+<td>Creates a new Player with as default the xbmc music playlist.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#xbmc.RenderCapture" title="xbmc.RenderCapture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderCapture</span></code></a></td>
+<td>RenerCapture class</td>
+</tr>
+</tbody>
+</table>
+<dl class="data">
+<dt id="xbmc.abortRequested">
+<code class="descclassname">xbmc.</code><code class="descname">abortRequested</code><em class="property"> = False</em><a class="headerlink" href="#xbmc.abortRequested" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if Kodi prepares to close itself</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.Keyboard">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">Keyboard</code><span class="sig-paren">(</span><em>line=''</em>, <em>heading=''</em>, <em>hidden=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Keyboard" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Creates a new Keyboard object with default text heading and hidden input flag if supplied.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>line</strong> – string - default text entry.</li>
+<li><strong>heading</strong> – string - keyboard heading.</li>
+<li><strong>hidden</strong> – boolean - True for hidden text entry.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">Keyboard</span><span class="p">(</span><span class="s1">&#39;default&#39;</span><span class="p">,</span> <span class="s1">&#39;heading&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">kb</span><span class="o">.</span><span class="n">setDefault</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span> <span class="c1"># optional</span>
+<span class="n">kb</span><span class="o">.</span><span class="n">setHeading</span><span class="p">(</span><span class="s1">&#39;Enter password&#39;</span><span class="p">)</span> <span class="c1"># optional</span>
+<span class="n">kb</span><span class="o">.</span><span class="n">setHiddenInput</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># optional</span>
+<span class="n">kb</span><span class="o">.</span><span class="n">doModal</span><span class="p">()</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">kb</span><span class="o">.</span><span class="n">isConfirmed</span><span class="p">()):</span>
+    <span class="n">text</span> <span class="o">=</span> <span class="n">kb</span><span class="o">.</span><span class="n">getText</span><span class="p">()</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="xbmc.Keyboard.doModal">
+<code class="descname">doModal</code><span class="sig-paren">(</span><em>autoclose=0</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Keyboard.doModal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Show keyboard and wait for user action.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>autoclose</strong> – integer - milliseconds to autoclose dialog.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">autoclose = 0 - This disables autoclose</p>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span><span class="o">.</span><span class="n">doModal</span><span class="p">(</span><span class="mi">30000</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Keyboard.setDefault">
+<code class="descname">setDefault</code><span class="sig-paren">(</span><em>line=''</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Keyboard.setDefault" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the default text entry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>line</strong> – string - default text entry.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span><span class="o">.</span><span class="n">setDefault</span><span class="p">(</span><span class="s1">&#39;password&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Keyboard.setHiddenInput">
+<code class="descname">setHiddenInput</code><span class="sig-paren">(</span><em>hidden=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Keyboard.setHiddenInput" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allows hidden text entry.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>hidden</strong> – boolean - <code class="docutils literal notranslate"><span class="pre">True</span></code> for hidden text entry.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span><span class="o">.</span><span class="n">setHiddenInput</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Keyboard.setHeading">
+<code class="descname">setHeading</code><span class="sig-paren">(</span><em>heading</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Keyboard.setHeading" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the keyboard heading.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>heading</strong> – string - keyboard heading.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kb</span><span class="o">.</span><span class="n">setHeading</span><span class="p">(</span><span class="s1">&#39;Enter password&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Keyboard.getText">
+<code class="descname">getText</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Keyboard.getText" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the user input as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">entered text</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This will always return the text entry even if you cancel the keyboard.
+Use the isConfirmed() method to check if user cancelled the keyboard.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Keyboard.isConfirmed">
+<code class="descname">isConfirmed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Keyboard.isConfirmed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">False</span></code> if the user cancelled the input.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">confirmed status</td>
+</tr>
+</tbody>
+</table>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">kb</span><span class="o">.</span><span class="n">isConfirmed</span><span class="p">()):</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.Player">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">Player</code><a class="headerlink" href="#xbmc.Player" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Creates a new Player with as default the xbmc music playlist.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">currently Player class constructor does not take any parameters.
+Kodi automatically selects a necessary player.</p>
+</div>
+<dl class="method">
+<dt id="xbmc.Player.play">
+<code class="descname">play</code><span class="sig-paren">(</span><em>item=None</em>, <em>listitem=None</em>, <em>windowed=False</em>, <em>statrpos=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.play" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play this item.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>item</strong> – [opt] string - filename, url or playlist.</li>
+<li><strong>listitem</strong> – [opt] listitem - used with setInfo() to set different infolabels.</li>
+<li><strong>windowed</strong> – [opt] bool - true=play video windowed, false=play users preference.(default)</li>
+<li><strong>startpos</strong> – [opt] int - starting position when playing a playlist. Default = -1</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If item is not given then the Player will try to play the current item
+in the current playlist.</p>
+</div>
+<p>You can use the above as keywords for arguments and skip certain optional arguments.
+Once you use a keyword, all following arguments require the keyword.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">listitem</span> <span class="o">=</span> <span class="n">xbmcgui</span><span class="o">.</span><span class="n">ListItem</span><span class="p">(</span><span class="s1">&#39;Ironman&#39;</span><span class="p">)</span>
+<span class="n">listitem</span><span class="o">.</span><span class="n">setInfo</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="s1">&#39;Ironman&#39;</span><span class="p">,</span> <span class="s1">&#39;Genre&#39;</span><span class="p">:</span> <span class="s1">&#39;Science Fiction&#39;</span><span class="p">})</span>
+<span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">listitem</span><span class="p">,</span> <span class="n">windowed</span><span class="p">)</span>
+<span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">play</span><span class="p">(</span><span class="n">playlist</span><span class="p">,</span> <span class="n">listitem</span><span class="p">,</span> <span class="n">windowed</span><span class="p">,</span> <span class="n">startpos</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.stop">
+<code class="descname">stop</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop playing.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.pause">
+<code class="descname">pause</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.pause" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause or resume playing if already paused.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.playnext">
+<code class="descname">playnext</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.playnext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play next item in playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.playprevious">
+<code class="descname">playprevious</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.playprevious" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play previous item in playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.playselected">
+<code class="descname">playselected</code><span class="sig-paren">(</span><em>selected</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.playselected" title="Permalink to this definition">¶</a></dt>
+<dd><p>Play a certain item from the current playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.onPlayBackStarted">
+<code class="descname">onPlayBackStarted</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.onPlayBackStarted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will be called when xbmc starts playing a file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.onPlayBackEnded">
+<code class="descname">onPlayBackEnded</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.onPlayBackEnded" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will be called when xbmc stops playing a file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.onPlayBackStopped">
+<code class="descname">onPlayBackStopped</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.onPlayBackStopped" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will be called when user stops xbmc playing a file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.onPlayBackPaused">
+<code class="descname">onPlayBackPaused</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.onPlayBackPaused" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will be called when user pauses a playing file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.onPlayBackResumed">
+<code class="descname">onPlayBackResumed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.onPlayBackResumed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will be called when user resumes a paused file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.onPlayBackSeek">
+<code class="descname">onPlayBackSeek</code><span class="sig-paren">(</span><em>time</em>, <em>seekOffset</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.onPlayBackSeek" title="Permalink to this definition">¶</a></dt>
+<dd><p>onPlayBackSeek method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>time</strong> – integer - time to seek to.</li>
+<li><strong>seekOffset</strong> – integer - ?.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when user seeks to a time</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.onPlayBackSeekChapter">
+<code class="descname">onPlayBackSeekChapter</code><span class="sig-paren">(</span><em>chapter</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.onPlayBackSeekChapter" title="Permalink to this definition">¶</a></dt>
+<dd><p>onPlayBackSeekChapter method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>chapter</strong> – integer - chapter to seek to.</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when user performs a chapter seek</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.onPlayBackSpeedChanged">
+<code class="descname">onPlayBackSpeedChanged</code><span class="sig-paren">(</span><em>speed</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.onPlayBackSpeedChanged" title="Permalink to this definition">¶</a></dt>
+<dd><p>onPlayBackSpeedChanged(speed) – onPlayBackSpeedChanged method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>speed</strong> – integer - current speed of player.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">negative speed means player is rewinding, 1 is normal playback speed.</p>
+</div>
+<p>Will be called when players speed changes. (eg. user FF/RW)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.onQueueNextItem">
+<code class="descname">onQueueNextItem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.onQueueNextItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>onQueueNextItem method.</p>
+<p>Will be called when player requests next item</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.isPlaying">
+<code class="descname">isPlaying</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.isPlaying" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> is xbmc is playing a file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.isPlayingAudio">
+<code class="descname">isPlayingAudio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.isPlayingAudio" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> is xbmc is playing an audio file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.isPlayingVideo">
+<code class="descname">isPlayingVideo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.isPlayingVideo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if xbmc is playing a video.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getPlayingFile">
+<code class="descname">getPlayingFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.getPlayingFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>returns the current playing file as a string.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For LiveTV, returns a pvr:// url which is not translatable to an OS specific file or external url</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">Exception, if player is not playing a file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getVideoInfoTag">
+<code class="descname">getVideoInfoTag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.getVideoInfoTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the VideoInfoTag of the current playing Movie.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">Exception: If player is not playing a file or current file is not a movie file.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This doesn’t work yet, it’s not tested.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getMusicInfoTag">
+<code class="descname">getMusicInfoTag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.getMusicInfoTag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the MusicInfoTag of the current playing ‘Song’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">Exception: If player is not playing a file or current file is not a music file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getTotalTime">
+<code class="descname">getTotalTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.getTotalTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the total time of the current playing media in seconds.</p>
+<p>This is only accurate to the full second.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">Exception: If player is not playing a file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getTime">
+<code class="descname">getTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.getTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current time of the current playing media as fractional seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">Exception: If player is not playing a file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.seekTime">
+<code class="descname">seekTime</code><span class="sig-paren">(</span><em>pTime</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.seekTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seeks the specified amount of time as fractional seconds.</p>
+<p>The time specified is relative to the beginning of the currently playing media file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">Exception: If player is not playing a file.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.setSubtitles">
+<code class="descname">setSubtitles</code><span class="sig-paren">(</span><em>subtitleFile</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.setSubtitles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set subtitle file and enable subtitles.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>subtitleFile</strong> – string or unicode - Path to subtitle.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setSubtitles</span><span class="p">(</span><span class="s1">&#39;/path/to/subtitle/test.srt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getSubtitles">
+<code class="descname">getSubtitles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.getSubtitles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get subtitle stream name.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getAvailableAudioStreams">
+<code class="descname">getAvailableAudioStreams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.getAvailableAudioStreams" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get audio stream names.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.getAvailableSubtitleStreams">
+<code class="descname">getAvailableSubtitleStreams</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.getAvailableSubtitleStreams" title="Permalink to this definition">¶</a></dt>
+<dd><p>get Subtitle stream names</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.setAudioStream">
+<code class="descname">setAudioStream</code><span class="sig-paren">(</span><em>iStream</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.setAudioStream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set audio stream.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iStream</strong> – int</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.setSubtitleStream">
+<code class="descname">setSubtitleStream</code><span class="sig-paren">(</span><em>iStream</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.setSubtitleStream" title="Permalink to this definition">¶</a></dt>
+<dd><p>set Subtitle Stream</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>iStream</strong> – int</td>
+</tr>
+</tbody>
+</table>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">setSubtitleStream</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Player.showSubtitles">
+<code class="descname">showSubtitles</code><span class="sig-paren">(</span><em>bVisible</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Player.showSubtitles" title="Permalink to this definition">¶</a></dt>
+<dd><p>enable/disable subtitles</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>bVisible</strong> – boolean - <code class="docutils literal notranslate"><span class="pre">True</span></code> for visible subtitles.</td>
+</tr>
+</tbody>
+</table>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">Player</span><span class="p">()</span><span class="o">.</span><span class="n">showSubtitles</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.PlayList">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">PlayList</code><span class="sig-paren">(</span><em>playList</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayList" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Retrieve a reference from a valid xbmc playlist</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>playlist</strong> – int - can be one of the next values:</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span><span class="p">:</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">PLAYLIST_MUSIC</span>
+<span class="mi">1</span><span class="p">:</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">PLAYLIST_VIDEO</span>
+</pre></div>
+</div>
+<p>Use PlayList[int position] or __getitem__(int position) to get a PlayListItem.</p>
+<dl class="method">
+<dt id="xbmc.PlayList.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>url</em>, <em>listitem=None</em>, <em>index=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayList.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new file to the playlist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>url</strong> – string or unicode - filename or url to add.</li>
+<li><strong>listitem</strong> – listitem - used with setInfo() to set different infolabels.</li>
+<li><strong>index</strong> – integer - position to add playlist item.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">playlist</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">PlayList</span><span class="p">(</span><span class="n">xbmc</span><span class="o">.</span><span class="n">PLAYLIST_VIDEO</span><span class="p">)</span>
+<span class="n">video</span> <span class="o">=</span> <span class="s1">&#39;F:\movies\Ironman.mov&#39;</span>
+<span class="n">listitem</span> <span class="o">=</span> <span class="n">xbmcgui</span><span class="o">.</span><span class="n">ListItem</span><span class="p">(</span><span class="s1">&#39;Ironman&#39;</span><span class="p">,</span> <span class="n">thumbnailImage</span><span class="o">=</span><span class="s1">&#39;F:\movies\Ironman.tbn&#39;</span><span class="p">)</span>
+<span class="n">listitem</span><span class="o">.</span><span class="n">setInfo</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Title&#39;</span><span class="p">:</span> <span class="s1">&#39;Ironman&#39;</span><span class="p">,</span> <span class="s1">&#39;Genre&#39;</span><span class="p">:</span> <span class="s1">&#39;Science Fiction&#39;</span><span class="p">})</span>
+<span class="n">playlist</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">video</span><span class="p">,</span> <span class="n">listitem</span><span class="o">=</span><span class="n">listitem</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.load">
+<code class="descname">load</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayList.load" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load a playlist.</p>
+<p>Clear current playlist and copy items from the file to this Playlist.
+filename can be like .pls or .m3u …</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> – </td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><code class="docutils literal notranslate"><span class="pre">False</span></code> if unable to load playlist, True otherwise.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayList.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove an item with this filename from the playlist.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>filename</strong> – </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.clear">
+<code class="descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayList.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear all items in the playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.shuffle">
+<code class="descname">shuffle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayList.shuffle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shuffle the playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.unshuffle">
+<code class="descname">unshuffle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayList.unshuffle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unshuffle the playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.size">
+<code class="descname">size</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayList.size" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the total number of PlayListItems in this playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.getposition">
+<code class="descname">getposition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayList.getposition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the position of the current song in this playlist.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayList.getPlayListId">
+<code class="descname">getPlayListId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayList.getPlayListId" title="Permalink to this definition">¶</a></dt>
+<dd><p>getPlayListId() –returns an integer.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.PlayListItem">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">PlayListItem</code><a class="headerlink" href="#xbmc.PlayListItem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Creates a new PlaylistItem which can be added to a PlayList.</p>
+<dl class="method">
+<dt id="xbmc.PlayListItem.getdescription">
+<code class="descname">getdescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayListItem.getdescription" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the description of this PlayListItem.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayListItem.getduration">
+<code class="descname">getduration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayListItem.getduration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the duration of this PlayListItem.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.PlayListItem.getfilename">
+<code class="descname">getfilename</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.PlayListItem.getfilename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the filename of this PlayListItem.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.InfoTagMusic">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">InfoTagMusic</code><a class="headerlink" href="#xbmc.InfoTagMusic" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>InfoTagMusic class</p>
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getURL">
+<code class="descname">getURL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getURL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getTitle">
+<code class="descname">getTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getArtist">
+<code class="descname">getArtist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getArtist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getAlbumArtist">
+<code class="descname">getAlbumArtist</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getAlbumArtist" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getAlbum">
+<code class="descname">getAlbum</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getAlbum" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getGenre">
+<code class="descname">getGenre</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getGenre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getDuration">
+<code class="descname">getDuration</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getDuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an integer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getTrack">
+<code class="descname">getTrack</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getTrack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an integer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getDisc">
+<code class="descname">getDisc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getDisc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an integer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getTrackAndDisc">
+<code class="descname">getTrackAndDisc</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getTrackAndDisc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an integer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getReleaseDate">
+<code class="descname">getReleaseDate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getReleaseDate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getListeners">
+<code class="descname">getListeners</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getListeners" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an integer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getPlayCount">
+<code class="descname">getPlayCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getPlayCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an integer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getLastPlayed">
+<code class="descname">getLastPlayed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getLastPlayed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getComment">
+<code class="descname">getComment</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getComment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagMusic.getLyrics">
+<code class="descname">getLyrics</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagMusic.getLyrics" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.InfoTagVideo">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">InfoTagVideo</code><a class="headerlink" href="#xbmc.InfoTagVideo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>InfoTagVideo class</p>
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getDirector">
+<code class="descname">getDirector</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getDirector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getWritingCredits">
+<code class="descname">getWritingCredits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getWritingCredits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getGenre">
+<code class="descname">getGenre</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getGenre" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getTagLine">
+<code class="descname">getTagLine</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getTagLine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPlotOutline">
+<code class="descname">getPlotOutline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getPlotOutline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPlot">
+<code class="descname">getPlot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPictureURL">
+<code class="descname">getPictureURL</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getPictureURL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getTitle">
+<code class="descname">getTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getOriginalTitle">
+<code class="descname">getOriginalTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getOriginalTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getVotes">
+<code class="descname">getVotes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getVotes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getCast">
+<code class="descname">getCast</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getCast" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getFile">
+<code class="descname">getFile</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPath">
+<code class="descname">getPath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getIMDBNumber">
+<code class="descname">getIMDBNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getIMDBNumber" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getYear">
+<code class="descname">getYear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getYear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an integer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPremiered">
+<code class="descname">getPremiered</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getPremiered" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getFirstAired">
+<code class="descname">getFirstAired</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getFirstAired" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getRating">
+<code class="descname">getRating</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getRating" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a float.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getPlayCount">
+<code class="descname">getPlayCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getPlayCount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an integer.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getLastPlayed">
+<code class="descname">getLastPlayed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getLastPlayed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getTVShowTitle">
+<code class="descname">getTVShowTitle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getTVShowTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getMediaType">
+<code class="descname">getMediaType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getMediaType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getSeason">
+<code class="descname">getSeason</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getSeason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an int.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.InfoTagVideo.getEpisode">
+<code class="descname">getEpisode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.InfoTagVideo.getEpisode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an int.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.Monitor">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">Monitor</code><a class="headerlink" href="#xbmc.Monitor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Monitor class.</p>
+<p>Creates a new Monitor to notify addon about changes.</p>
+<dl class="method">
+<dt id="xbmc.Monitor.onScreensaverActivated">
+<code class="descname">onScreensaverActivated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.onScreensaverActivated" title="Permalink to this definition">¶</a></dt>
+<dd><p>onScreensaverActivated method.</p>
+<p>Will be called when screensaver kicks in</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onScreensaverDeactivated">
+<code class="descname">onScreensaverDeactivated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.onScreensaverDeactivated" title="Permalink to this definition">¶</a></dt>
+<dd><p>onScreensaverDeactivated method.</p>
+<p>Will be called when screensaver goes off</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onSettingsChanged">
+<code class="descname">onSettingsChanged</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.onSettingsChanged" title="Permalink to this definition">¶</a></dt>
+<dd><p>onSettingsChanged method.</p>
+<p>Will be called when addon settings are changed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onNotification">
+<code class="descname">onNotification</code><span class="sig-paren">(</span><em>sender</em>, <em>method</em>, <em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.onNotification" title="Permalink to this definition">¶</a></dt>
+<dd><p>onNotification method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>sender</strong> – str - sender of the notification</li>
+<li><strong>method</strong> – str - name of the notification</li>
+<li><strong>data</strong> – str - JSON-encoded data of the notification</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when Kodi receives or sends a notification</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onCleanStarted">
+<code class="descname">onCleanStarted</code><span class="sig-paren">(</span><em>library</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.onCleanStarted" title="Permalink to this definition">¶</a></dt>
+<dd><p>onCleanStarted method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>library</strong> – video/music as string</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when library clean has started
+and return video or music to indicate which library is being cleaned</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onCleanFinished">
+<code class="descname">onCleanFinished</code><span class="sig-paren">(</span><em>library</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.onCleanFinished" title="Permalink to this definition">¶</a></dt>
+<dd><p>onCleanFinished method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>library</strong> – video/music as string</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when library clean has ended
+and return video or music to indicate which library has been cleaned</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onDPMSActivated">
+<code class="descname">onDPMSActivated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.onDPMSActivated" title="Permalink to this definition">¶</a></dt>
+<dd><p>onDPMSActivated method.</p>
+<p>Will be called when energysaving/DPMS gets active</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onDPMSDeactivated">
+<code class="descname">onDPMSDeactivated</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.onDPMSDeactivated" title="Permalink to this definition">¶</a></dt>
+<dd><p>onDPMSDeactivated method.</p>
+<p>Will be called when energysaving/DPMS is turned off</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onScanFinished">
+<code class="descname">onScanFinished</code><span class="sig-paren">(</span><em>library</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.onScanFinished" title="Permalink to this definition">¶</a></dt>
+<dd><p>onScanFinished method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>library</strong> – video/music as string</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when library scan has ended
+and return video or music to indicate which library has been scanned</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.onScanStarted">
+<code class="descname">onScanStarted</code><span class="sig-paren">(</span><em>library</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.onScanStarted" title="Permalink to this definition">¶</a></dt>
+<dd><p>onScanStarted method.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>library</strong> – video/music as string</td>
+</tr>
+</tbody>
+</table>
+<p>Will be called when library scan has started
+and return video or music to indicate which library is being scanned</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.waitForAbort">
+<code class="descname">waitForAbort</code><span class="sig-paren">(</span><em>timeout=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.waitForAbort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block until abort is requested, or until timeout occurs.</p>
+<p>If an abort requested have already been made, return immediately.
+Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> when abort have been requested,
+<code class="docutils literal notranslate"><span class="pre">False</span></code> if a timeout is given and the operation times out.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>timeout</strong> – float - (optional) timeout in seconds. Default: no timeout.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.Monitor.abortRequested">
+<code class="descname">abortRequested</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.Monitor.abortRequested" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if abort has been requested.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="xbmc.RenderCapture">
+<em class="property">class </em><code class="descclassname">xbmc.</code><code class="descname">RenderCapture</code><a class="headerlink" href="#xbmc.RenderCapture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2.7/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>RenerCapture class</p>
+<dl class="method">
+<dt id="xbmc.RenderCapture.capture">
+<code class="descname">capture</code><span class="sig-paren">(</span><em>width</em>, <em>height</em>, <em>flags=0</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.RenderCapture.capture" title="Permalink to this definition">¶</a></dt>
+<dd><p>Issue capture request.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>width</strong> – Width capture image should be rendered to</li>
+<li><strong>height</strong> – Height capture image should should be rendered to</li>
+<li><strong>flags</strong> – Optional. Flags that control the capture processing.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The value for ‘flags’ could be or’ed from the following constants:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">xbmc.CAPTURE_FLAG_CONTINUOUS</span></code>: after a capture is done,
+issue a new capture request immediately</li>
+<li><code class="docutils literal notranslate"><span class="pre">xbmc.CAPTURE_FLAG_IMMEDIATELY</span></code>: read out immediately whencapture() is called,
+this can cause a busy wait</li>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">As of Kodi 17.x (Krypton) <code class="docutils literal notranslate"><span class="pre">flags</span></code> option will be deprecated.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.getAspectRatio">
+<code class="descname">getAspectRatio</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.RenderCapture.getAspectRatio" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">aspect ratio of currently displayed video as a float number.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.getCaptureState">
+<code class="descname">getCaptureState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.RenderCapture.getCaptureState" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">processing state of capture request.</td>
+</tr>
+</tbody>
+</table>
+<p>The returned value could be compared against the following constants:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- ``xbmc.CAPTURE_STATE_WORKING``: Capture request in progress.
+- ``xbmc.CAPTURE_STATE_DONE``: Capture request done. The image could be retrieved withgetImage()
+- ``xbmc.CAPTURE_STATE_FAILED``: Capture request failed.
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Will be deprecated in Kodi 17.x (Krypton)</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.getHeight">
+<code class="descname">getHeight</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.RenderCapture.getHeight" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">height of captured image.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.getImage">
+<code class="descname">getImage</code><span class="sig-paren">(</span><em>msecs=0</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.RenderCapture.getImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msecs</strong> – wait time in msec</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">captured image as a bytearray.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">msec</span></code> param will be added in Kodi 17.x (Krypton).</p>
+</div>
+<p>The size of the image isgetWidth() * getHeight() * 4</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.getImageFormat">
+<code class="descname">getImageFormat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.RenderCapture.getImageFormat" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">format of captured image: ‘BGRA’ or ‘RGBA’.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">As of Kodi 17.x (Krypton) ‘BRRA’ will always be returned</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.getWidth">
+<code class="descname">getWidth</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.RenderCapture.getWidth" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">width of captured image.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="xbmc.RenderCapture.waitForCaptureStateChangeEvent">
+<code class="descname">waitForCaptureStateChangeEvent</code><span class="sig-paren">(</span><em>msecs=0</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.RenderCapture.waitForCaptureStateChangeEvent" title="Permalink to this definition">¶</a></dt>
+<dd><p>wait for capture state change event</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>msecs</strong> – Milliseconds to wait. Waits forever if not specified.</td>
+</tr>
+</tbody>
+</table>
+<p>The method will return <code class="docutils literal notranslate"><span class="pre">1</span></code> if the Event was triggered. Otherwise it will return <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.audioResume">
+<code class="descclassname">xbmc.</code><code class="descname">audioResume</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.audioResume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resume Audio engine.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">audioResume</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.audioSuspend">
+<code class="descclassname">xbmc.</code><code class="descname">audioSuspend</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.audioSuspend" title="Permalink to this definition">¶</a></dt>
+<dd><p>Suspend Audio engine.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">audioSuspend</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.convertLanguage">
+<code class="descclassname">xbmc.</code><code class="descname">convertLanguage</code><span class="sig-paren">(</span><em>language</em>, <em>format</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.convertLanguage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the given language converted to the given format as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>language</strong> – string either as name in English, two letter code (ISO 639-1),
+or three letter code (ISO 639-2/T(B)</li>
+<li><strong>format</strong> – format of the returned language string:</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">xbmc.ISO_639_1</span></code>: two letter code as defined in ISO 639-1</li>
+<li><code class="docutils literal notranslate"><span class="pre">xbmc.ISO_639_2</span></code>: three letter code as defined in ISO 639-2/T or ISO 639-2/B</li>
+<li><code class="docutils literal notranslate"><span class="pre">xbmc.ENGLISH_NAME</span></code>: full language name in English (default)</li>
+</ul>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">language</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">convertLanguage</span><span class="p">(</span><span class="n">English</span><span class="p">,</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">ISO_639_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.enableNavSounds">
+<code class="descclassname">xbmc.</code><code class="descname">enableNavSounds</code><span class="sig-paren">(</span><em>yesNo</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.enableNavSounds" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enables/Disables nav sounds</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>yesNo</strong> – enable (<code class="docutils literal notranslate"><span class="pre">True</span></code>) or disable (<code class="docutils literal notranslate"><span class="pre">False</span></code>) nav sounds</td>
+</tr>
+</tbody>
+</table>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">enableNavSounds</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.executeJSONRPC">
+<code class="descclassname">xbmc.</code><code class="descname">executeJSONRPC</code><span class="sig-paren">(</span><em>jsonrpccommand</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.executeJSONRPC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute an JSONRPC command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>jsonrpccommand</strong> – string - jsonrpc command to execute.</td>
+</tr>
+</tbody>
+</table>
+<p>List of commands: <a class="reference external" href="http://wiki.xbmc.org/?title=JSON-RPC_API">http://wiki.xbmc.org/?title=JSON-RPC_API</a></p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">response</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">executeJSONRPC</span><span class="p">(</span><span class="s1">&#39;{ &quot;jsonrpc&quot;: &quot;2.0&quot;, &quot;method&quot;: &quot;JSONRPC.Introspect&quot;, &quot;id&quot;: 1 }&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.executebuiltin">
+<code class="descclassname">xbmc.</code><code class="descname">executebuiltin</code><span class="sig-paren">(</span><em>function</em>, <em>wait=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.executebuiltin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute a built in XBMC function.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>function</strong> – string - builtin function to execute.</td>
+</tr>
+</tbody>
+</table>
+<p>List of functions: <a class="reference external" href="http://wiki.xbmc.org/?title=List_of_Built_In_Functions">http://wiki.xbmc.org/?title=List_of_Built_In_Functions</a></p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">executebuiltin</span><span class="p">(</span><span class="s1">&#39;XBMC.RunXBE(c:valaunch.xbe)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.executescript">
+<code class="descclassname">xbmc.</code><code class="descname">executescript</code><span class="sig-paren">(</span><em>script</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.executescript" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute a python script.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>script</strong> – string - script filename to execute.</td>
+</tr>
+</tbody>
+</table>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">executescript</span><span class="p">(</span><span class="s1">&#39;special://home/scripts/update.py&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getCacheThumbName">
+<code class="descclassname">xbmc.</code><code class="descname">getCacheThumbName</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getCacheThumbName" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a thumb cache filename.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – string or unicode – path to file</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">thumb</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getCacheThumbName</span><span class="p">(</span><span class="s1">&#39;f:</span><span class="se">\v</span><span class="s1">ideos\movie.avi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getCleanMovieTitle">
+<code class="descclassname">xbmc.</code><code class="descname">getCleanMovieTitle</code><span class="sig-paren">(</span><em>path</em>, <em>usefoldername=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getCleanMovieTitle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a clean movie title and year string if available.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>path</strong> – string or unicode - String to clean</li>
+<li><strong>usefoldername</strong> – [opt] bool - use folder names (defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">title</span><span class="p">,</span> <span class="n">year</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getCleanMovieTitle</span><span class="p">(</span><span class="s1">&#39;/path/to/moviefolder/test.avi&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getCondVisibility">
+<code class="descclassname">xbmc.</code><code class="descname">getCondVisibility</code><span class="sig-paren">(</span><em>condition</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getCondVisibility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> (<code class="docutils literal notranslate"><span class="pre">1</span></code>) or <code class="docutils literal notranslate"><span class="pre">False</span></code> (<code class="docutils literal notranslate"><span class="pre">0</span></code>) as a <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>condition</strong> – string - condition to check.</td>
+</tr>
+</tbody>
+</table>
+<p>List of Conditions: <a class="reference external" href="http://wiki.xbmc.org/?title=List_of_Boolean_Conditions">http://wiki.xbmc.org/?title=List_of_Boolean_Conditions</a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can combine two (or more) of the above settings by using “+” as an <code class="docutils literal notranslate"><span class="pre">AND</span></code> operator,
+“|” as an <code class="docutils literal notranslate"><span class="pre">OR</span></code> operator, “!” as a <code class="docutils literal notranslate"><span class="pre">NOT</span></code> operator, and “[” and “]” to bracket expressions.</p>
+</div>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">visible</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getCondVisibility</span><span class="p">(</span><span class="s1">&#39;[Control.IsVisible(41) + !Control.IsVisible(12)]&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getDVDState">
+<code class="descclassname">xbmc.</code><code class="descname">getDVDState</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getDVDState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the dvd state as an integer.</p>
+<p>return values are:</p>
+<ul class="simple">
+<li>1 : <code class="docutils literal notranslate"><span class="pre">xbmc.DRIVE_NOT_READY</span></code></li>
+<li>16 : <code class="docutils literal notranslate"><span class="pre">xbmc.TRAY_OPEN</span></code></li>
+<li>64 : <code class="docutils literal notranslate"><span class="pre">xbmc.TRAY_CLOSED_NO_MEDIA</span></code></li>
+<li>96 : <code class="docutils literal notranslate"><span class="pre">xbmc.TRAY_CLOSED_MEDIA_PRESENT</span></code></li>
+</ul>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dvdstate</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getDVDState</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getFreeMem">
+<code class="descclassname">xbmc.</code><code class="descname">getFreeMem</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getFreeMem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the amount of free memory in MB as an integer.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">freemem</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getFreeMem</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getGlobalIdleTime">
+<code class="descclassname">xbmc.</code><code class="descname">getGlobalIdleTime</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getGlobalIdleTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the elapsed idle time in seconds as an integer.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getGlobalIdleTime</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getIPAddress">
+<code class="descclassname">xbmc.</code><code class="descname">getIPAddress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getIPAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the current ip address as a string.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ip</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getIPAddress</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getInfoImage">
+<code class="descclassname">xbmc.</code><code class="descname">getInfoImage</code><span class="sig-paren">(</span><em>infotag</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getInfoImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a filename including path to the InfoImage’s thumbnail as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>infotag</strong> – string - infotag for value you want returned.</td>
+</tr>
+</tbody>
+</table>
+<p>List of InfoTags: <a class="reference external" href="http://wiki.xbmc.org/?title=InfoLabels">http://wiki.xbmc.org/?title=InfoLabels</a></p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getInfoImage</span><span class="p">(</span><span class="s1">&#39;Weather.Conditions&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getInfoLabel">
+<code class="descclassname">xbmc.</code><code class="descname">getInfoLabel</code><span class="sig-paren">(</span><em>cLine</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getInfoLabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an InfoLabel as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>cLine</strong> – string - infoTag for value you want returned.</td>
+</tr>
+</tbody>
+</table>
+<p>List of InfoTags: <a class="reference external" href="http://wiki.xbmc.org/?title=InfoLabels">http://wiki.xbmc.org/?title=InfoLabels</a></p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">label</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getInfoLabel</span><span class="p">(</span><span class="s1">&#39;Weather.Conditions&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getLanguage">
+<code class="descclassname">xbmc.</code><code class="descname">getLanguage</code><span class="sig-paren">(</span><em>format=2</em>, <em>region=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getLanguage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the active language as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>format</strong> – [opt] format of the returned language string</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">xbmc.ISO_639_1</span></code>: two letter code as defined in ISO 639-1</li>
+<li><code class="docutils literal notranslate"><span class="pre">xbmc.ISO_639_2</span></code>: three letter code as defined in ISO 639-2/T or ISO 639-2/B</li>
+<li><code class="docutils literal notranslate"><span class="pre">xbmc.ENGLISH_NAME</span></code>: full language name in English (default)</li>
+</ul>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>region</strong> – [opt] append the region delimited by “-” of the language (setting)
+to the returned language string</td>
+</tr>
+</tbody>
+</table>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">language</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getLanguage</span><span class="p">(</span><span class="n">xbmc</span><span class="o">.</span><span class="n">ENGLISH_NAME</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getLocalizedString">
+<code class="descclassname">xbmc.</code><code class="descname">getLocalizedString</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getLocalizedString" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a localized ‘unicode string’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – integer – id# for string you want to localize.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See strings.po in language folders for which id you need for a string.</p>
+</div>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">locstr</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getLocalizedString</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getRegion">
+<code class="descclassname">xbmc.</code><code class="descname">getRegion</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getRegion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns your regions setting as a string for the specified id.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>id</strong> – string - id of setting to return</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">choices are (dateshort, datelong, time, meridiem, tempunit, speedunit)
+You can use the above as keywords for arguments.</p>
+</div>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date_long_format</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getRegion</span><span class="p">(</span><span class="s1">&#39;datelong&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getSkinDir">
+<code class="descclassname">xbmc.</code><code class="descname">getSkinDir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getSkinDir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the active skin directory as a string.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is not the full path like <code class="docutils literal notranslate"><span class="pre">'special://home/addons/skin.confluence'</span></code>,
+but only <code class="docutils literal notranslate"><span class="pre">'skin.confluence'</span></code>.</p>
+</div>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">skindir</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getSkinDir</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.getSupportedMedia">
+<code class="descclassname">xbmc.</code><code class="descname">getSupportedMedia</code><span class="sig-paren">(</span><em>mediaType</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.getSupportedMedia" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the supported file types for the specific media as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>mediaType</strong> – string - media type</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">media type can be (video, music, picture).
+The return value is a pipe separated string of filetypes (eg. ‘.mov|.avi’).</p>
+</div>
+<p>You can use the above as keywords for arguments.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mTypes</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">getSupportedMedia</span><span class="p">(</span><span class="s1">&#39;video&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.log">
+<code class="descclassname">xbmc.</code><code class="descname">log</code><span class="sig-paren">(</span><em>msg</em>, <em>level=0</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.log" title="Permalink to this definition">¶</a></dt>
+<dd><p>Write a string to XBMC’s log file and the debug window.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>msg</strong> – string - text to output.</li>
+<li><strong>level</strong> – [opt] integer - log level to ouput at. (default: <code class="docutils literal notranslate"><span class="pre">LOGDEBUG</span></code>)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can use the above as keywords for arguments and skip certain optional arguments.
+Once you use a keyword, all following arguments require the keyword.</p>
+</div>
+<p>Text is written to the log for the following conditions.</p>
+<ul class="simple">
+<li>XBMC loglevel == -1 (NONE, nothing at all is logged)</li>
+<li><dl class="first docutils">
+<dt>XBMC loglevel == 0 (NORMAL, shows LOGNOTICE, LOGERROR, LOGSEVERE and LOGFATAL) * XBMC loglevel == 1</dt>
+<dd>(DEBUG, shows all)</dd>
+</dl>
+</li>
+</ul>
+<p>See pydocs for valid values for level.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;This is a test string.&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">xbmc</span><span class="o">.</span><span class="n">LOGDEBUG</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.makeLegalFilename">
+<code class="descclassname">xbmc.</code><code class="descname">makeLegalFilename</code><span class="sig-paren">(</span><em>filename</em>, <em>fatX=True</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.makeLegalFilename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a legal filename or path as a string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> – string or unicode – filename/path to make legal</li>
+<li><strong>fatX</strong> – [opt] bool – <code class="docutils literal notranslate"><span class="pre">True</span></code> = Xbox file system(Default)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can use the above as keywords for arguments and skip certain optional arguments.
+Once you use a keyword, all following arguments require the keyword.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">makeLegalFilename</span><span class="p">(</span><span class="s1">&#39;F: Age: The Meltdown.avi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.playSFX">
+<code class="descclassname">xbmc.</code><code class="descname">playSFX</code><span class="sig-paren">(</span><em>filename</em>, <em>useCached=True</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.playSFX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plays a wav file by filename</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>filename</strong> – string - filename of the wav file to play.</li>
+<li><strong>useCached</strong> – [opt] bool - False = Dump any previously cached wav associated with filename</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">playSFX</span><span class="p">(</span><span class="s1">&#39;special://xbmc/scripts/dingdong.wav&#39;</span><span class="p">)</span>
+<span class="n">xbmc</span><span class="o">.</span><span class="n">playSFX</span><span class="p">(</span><span class="s1">&#39;special://xbmc/scripts/dingdong.wav&#39;</span><span class="p">,</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.stopSFX">
+<code class="descclassname">xbmc.</code><code class="descname">stopSFX</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.stopSFX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops wav file</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">stopSFX</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.restart">
+<code class="descclassname">xbmc.</code><code class="descname">restart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.restart" title="Permalink to this definition">¶</a></dt>
+<dd><p>Restart the htpc.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">restart</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.shutdown">
+<code class="descclassname">xbmc.</code><code class="descname">shutdown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.shutdown" title="Permalink to this definition">¶</a></dt>
+<dd><p>Shutdown the htpc.</p>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.skinHasImage">
+<code class="descclassname">xbmc.</code><code class="descname">skinHasImage</code><span class="sig-paren">(</span><em>image</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.skinHasImage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns <code class="docutils literal notranslate"><span class="pre">True</span></code> if the image file exists in the skin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image</strong> – string - image filename</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If the media resides in a subfolder include it.
+(eg. home-myfileshome-myfiles2.png). You can use the above as keywords for arguments.</p>
+</div>
+<p>example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exists</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">skinHasImage</span><span class="p">(</span><span class="s1">&#39;ButtonFocusedTexture.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.sleep">
+<code class="descclassname">xbmc.</code><code class="descname">sleep</code><span class="sig-paren">(</span><em>timemillis</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.sleep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sleeps for ‘time’ msec.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>timemillis</strong> – integer - number of msec to sleep.</td>
+</tr>
+</tbody>
+</table>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">TypeError, if time is not an integer.</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span> <span class="c1"># sleeps for 2 seconds</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.startServer">
+<code class="descclassname">xbmc.</code><code class="descname">startServer</code><span class="sig-paren">(</span><em>iTyp</em>, <em>bStart</em>, <em>bWait=False</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.startServer" title="Permalink to this definition">¶</a></dt>
+<dd><p>start or stop a server.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>iTyp</strong> – integer – use SERVER_* constants</li>
+<li><strong>bStart</strong> – bool – start (True) or stop (False) a server</li>
+<li><strong>bWait</strong> – [opt] bool – wait on stop before returning (not supported by all servers)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">bool – <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xbmc</span><span class="o">.</span><span class="n">startServer</span><span class="p">(</span><span class="n">xbmc</span><span class="o">.</span><span class="n">SERVER_AIRPLAYSERVER</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.translatePath">
+<code class="descclassname">xbmc.</code><code class="descname">translatePath</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.translatePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the translated path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – string or unicode - Path to format</td>
+</tr>
+</tbody>
+</table>
+<p>Converts <code class="docutils literal notranslate"><span class="pre">'special://masterprofile/script_data'</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">'/home/user/XBMC/UserData/script_data'</span></code> on Linux.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fpath</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">translatePath</span><span class="p">(</span><span class="s1">&#39;special://masterprofile/script_data&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="xbmc.validatePath">
+<code class="descclassname">xbmc.</code><code class="descname">validatePath</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#xbmc.validatePath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the validated path.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>path</strong> – string or unicode - Path to format</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Only useful if you are coding for both Linux and Windows for fixing slash problems.
+e.g. Corrects ‘Z://something’ -&gt; ‘Z:’</p>
+</div>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fpath</span> <span class="o">=</span> <span class="n">xbmc</span><span class="o">.</span><span class="n">validatePath</span><span class="p">(</span><span class="n">somepath</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Kodistubs</a></h1>
+
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=romanvm&repo=Kodistubs&type=star&v=2&count=true&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../using.html">Using Kodistubs</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../modules.html">Kodi Python API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">xbmc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcaddon.html">xbmcaddon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcgui.html">xbmcgui</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcplugin.html">xbmcplugin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="xbmcvfs.html">xbmcvfs</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="../modules.html">Kodi Python API</a><ul>
+      <li>Previous: <a href="../modules.html" title="previous chapter">Kodi Python API</a></li>
+      <li>Next: <a href="xbmcaddon.html" title="next chapter">xbmcaddon</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      
+      
+      
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.7.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+    </div>
+
+    
+    <a href="https://github.com/romanvm/Kodistubs" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
